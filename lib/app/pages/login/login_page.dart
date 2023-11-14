@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:prova_flutter/app/controller/url_store.dart';
 import 'package:prova_flutter/app/pages/login/components/custom_button.dart';
 import 'package:prova_flutter/app/pages/login/components/custom_field.dart';
 import 'package:validatorless/validatorless.dart';
@@ -16,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   final _senhaController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final RegExp _myRegex = RegExp(r'^[a-zA-Z]+$');
+  final urlStore = UrlStore();
 
   @override
   void dispose() {
@@ -28,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        
         body: Container(
           padding: const EdgeInsets.all(20),
           child: Form(
@@ -70,10 +74,18 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
                 CustomButton(onPressed: () {}, child: const Text('Entrar')),
                 const Spacer(),
-                InkWell(
-                    onTap: () {},
-                    child:
-                        const Center(child: Text('Política de Privacidade'))),
+                Observer(builder: (_) {
+                  return TextButton(
+                      onPressed: () {
+                        urlStore.launchInWeb(urlStore.toPrivacyPolicy);
+                      },
+                      child: const Center(
+                        child: Text(
+                          'Política de Privacidade',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ));
+                })
               ],
             ),
           ),

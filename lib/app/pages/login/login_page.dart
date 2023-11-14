@@ -5,6 +5,9 @@ import 'package:prova_flutter/app/pages/login/components/custom_button.dart';
 import 'package:prova_flutter/app/pages/login/components/custom_field.dart';
 import 'package:validatorless/validatorless.dart';
 
+import '../../controller/auth_store.dart';
+import '../../core/routes/named_routes.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -19,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final RegExp _myRegex = RegExp(r'^[a-zA-Z]+$');
   final urlStore = UrlStore();
+  final authStore = AuthStore();
 
   @override
   void dispose() {
@@ -31,8 +35,14 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
         body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF1b4e62), Color(0xFF2b8d89)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           padding: const EdgeInsets.all(20),
           child: Form(
             key: _formKey,
@@ -43,7 +53,10 @@ class _LoginPageState extends State<LoginPage> {
                 const Spacer(),
                 const Padding(
                   padding: EdgeInsets.only(left: 30.0),
-                  child: Text('Usuário'),
+                  child: Text(
+                    'Usuário',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
                 ),
                 CustomField(
                   controller: _userController,
@@ -56,7 +69,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 30.0),
-                  child: Text('Senha'),
+                  child: Text(
+                    'Senha',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
                 ),
                 CustomField(
                   controller: _senhaController,
@@ -72,7 +88,17 @@ class _LoginPageState extends State<LoginPage> {
                   ]),
                 ),
                 const SizedBox(height: 16),
-                CustomButton(onPressed: () {}, child: const Text('Entrar')),
+                CustomButton(
+                    onPressed: () async {
+                      if (_formKey.currentState != null &&
+                          _formKey.currentState!.validate()) {
+                        await authStore.userLogin(_userController.text);
+                        Navigator.pushReplacementNamed(
+                            context, NamedRoutes.HOME_PAGE,
+                            arguments: _userController.text);
+                      }
+                    },
+                    child: const Text('Entrar')),
                 const Spacer(),
                 Observer(builder: (_) {
                   return TextButton(
@@ -82,7 +108,10 @@ class _LoginPageState extends State<LoginPage> {
                       child: const Center(
                         child: Text(
                           'Política de Privacidade',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400),
                         ),
                       ));
                 })

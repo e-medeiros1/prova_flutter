@@ -21,7 +21,8 @@ class CustomField extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(30.0),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
           children: [
@@ -35,9 +36,9 @@ class CustomField extends StatelessWidget {
                 autofocus: true,
                 obscureText: obscureText,
                 validator: validator,
+                cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
-                  
                   hintStyle: TextStyle(color: Colors.grey),
                 ),
               ),

@@ -9,14 +9,16 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Center(
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
+          backgroundColor: const Color(0xFF44bd6e),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+          padding: EdgeInsets.symmetric(
+              horizontal: size.width * .2, vertical: size.height * .018),
         ),
         child: child,
       ),

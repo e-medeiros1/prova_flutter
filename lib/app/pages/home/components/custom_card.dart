@@ -5,36 +5,39 @@ class CustomCard extends StatelessWidget {
   final CardModel cardModel;
   final String text;
   final VoidCallback onPressedDelete;
-  final VoidCallback onPressedEdit;
-  const CustomCard({super.key, required this.cardModel, required this.text, required this.onPressedDelete, required this.onPressedEdit});
+  const CustomCard({
+    super.key,
+    required this.cardModel,
+    required this.text,
+    required this.onPressedDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: Row(
-        children: [
-          const Spacer(),
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 16,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      child: Card(
+        color: Colors.white,
+        child: Row(
+          children: [
+            const Spacer(),
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
             ),
-          ),
-          const Spacer(),
-          Row(
-            children: [
-              IconButton(
-                onPressed: onPressedEdit,
-                icon: const Icon(Icons.edit),
-              ),
-              IconButton(
-                onPressed: onPressedDelete,
-                icon: const Icon(Icons.delete),
-              ),
-            ],
-          )
-        ],
+            const Spacer(),
+            Row(
+              children: [
+                IconButton(
+                  onPressed: onPressedDelete,
+                  icon: const Icon(Icons.delete),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

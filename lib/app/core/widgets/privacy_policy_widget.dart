@@ -15,7 +15,7 @@ class PrivacyPolicyWidget extends StatelessWidget {
           child: Text(
             'Política de Privacidade',
             style: TextStyle(
-                fontSize: 17, color: Colors.white, fontWeight: FontWeight.w400),
+                fontSize: 16, color: Colors.white, fontWeight: FontWeight.w400),
           ),
         ));
   }

@@ -10,7 +10,7 @@ class CustomField extends StatelessWidget {
   }) : super(key: key);
 
   final TextEditingController controller;
-  final Widget icon;
+  final IconData icon;
   final String? Function(String?)? validator;
   final bool obscureText;
 
@@ -18,32 +18,23 @@ class CustomField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: icon,
-            ),
-            Expanded(
-              child: TextFormField(
-                controller: controller,
-                autofocus: true,
-                obscureText: obscureText,
-                validator: validator,
-                cursorColor: Colors.black,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-              ),
-            ),
-          ],
+      child: TextFormField(
+        controller: controller,
+        autofocus: true,
+        obscureText: obscureText,
+        validator: validator,
+        cursorColor: Colors.black,
+        decoration: InputDecoration(
+          errorStyle: const TextStyle(color: Colors.white),
+          fillColor: Colors.white,
+          filled: true,
+          icon: Icon(icon, color: Colors.white),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius:
+                BorderRadius.circular(10.0), // Adjust the radius as needed
+          ),
+          hintStyle: const TextStyle(color: Colors.grey),
         ),
       ),
     );

@@ -7,6 +7,5 @@ void main() async {
   final authStore = AuthStore();
   WidgetsFlutterBinding.ensureInitialized();
   await authStore.init();
-
   runApp(const ProvaFlutter());
 }

@@ -9,19 +9,19 @@ part of 'auth_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AuthStore on AuthStoreBase, Store {
-  late final _$_prefsAtom =
-      Atom(name: 'AuthStoreBase._prefs', context: context);
+  late final _$isLoggedInAtom =
+      Atom(name: 'AuthStoreBase.isLoggedIn', context: context);
 
   @override
-  SharedPreferences get _prefs {
-    _$_prefsAtom.reportRead();
-    return super._prefs;
+  bool get isLoggedIn {
+    _$isLoggedInAtom.reportRead();
+    return super.isLoggedIn;
   }
 
   @override
-  set _prefs(SharedPreferences value) {
-    _$_prefsAtom.reportWrite(value, super._prefs, () {
-      super._prefs = value;
+  set isLoggedIn(bool value) {
+    _$isLoggedInAtom.reportWrite(value, super.isLoggedIn, () {
+      super.isLoggedIn = value;
     });
   }
 
@@ -29,7 +29,7 @@ mixin _$AuthStore on AuthStoreBase, Store {
       AsyncAction('AuthStoreBase.init', context: context);
 
   @override
-  Future init() {
+  Future<dynamic> init() {
     return _$initAsyncAction.run(() => super.init());
   }
 
@@ -41,24 +41,26 @@ mixin _$AuthStore on AuthStoreBase, Store {
     return _$userLoginAsyncAction.run(() => super.userLogin(username));
   }
 
-  late final _$AuthStoreBaseActionController =
-      ActionController(name: 'AuthStoreBase', context: context);
+  late final _$userLogoutAsyncAction =
+      AsyncAction('AuthStoreBase.userLogout', context: context);
 
   @override
-  dynamic userLogout() {
-    final _$actionInfo = _$AuthStoreBaseActionController.startAction(
-        name: 'AuthStoreBase.userLogout');
-    try {
-      return super.userLogout();
-    } finally {
-      _$AuthStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future<dynamic> userLogout() {
+    return _$userLogoutAsyncAction.run(() => super.userLogout());
+  }
+
+  late final _$checkLoginStatusAsyncAction =
+      AsyncAction('AuthStoreBase.checkLoginStatus', context: context);
+
+  @override
+  Future<dynamic> checkLoginStatus() {
+    return _$checkLoginStatusAsyncAction.run(() => super.checkLoginStatus());
   }
 
   @override
   String toString() {
     return '''
-
+isLoggedIn: ${isLoggedIn}
     ''';
   }
 }

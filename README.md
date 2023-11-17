@@ -23,10 +23,10 @@ Tomei como base projetos em que já fiz e/ou participei, tais como: https://gith
 <p> Telas </p>   
 
 <h3> Login </h3>  
-<img src="https://github.com/e-medeiros1/prova_flutter/assets/73318684/61cf65ab-20b3-4ac7-b985-fc9affb2bbb9" width="350" alt="Login Page"/></br>   
+<img src="https://github.com/e-medeiros1/prova_flutter/assets/73318684/61cf65ab-20b3-4ac7-b985-fc9affb2bbb9" width="300" alt="Login Page"/></br>   
 
 <h3> HomePage </h3>  
-<img src="https://github.com/e-medeiros1/prova_flutter/assets/73318684/ff5abbb9-1b73-475b-bcae-8634f9fed4ee" width="350" alt="Home page"/></br>   
+<img src="https://github.com/e-medeiros1/prova_flutter/assets/73318684/ff5abbb9-1b73-475b-bcae-8634f9fed4ee" width="300" alt="Home page"/></br>   
 
 
    >Esse projeto foi desenvolvido ❤️ por **[@erimedeiros](https://www.linkedin.com/in/erimedeiros/)**.<br> 

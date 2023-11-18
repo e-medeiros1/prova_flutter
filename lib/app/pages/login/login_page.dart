@@ -114,10 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 16),
                   CustomButton(
                     onPressed: () async {
-                      if (_formKey.currentState != null &&
-                          _formKey.currentState!.validate()) {
-                        return _login();
-                      }
+                      return _login();
                     },
                     text: 'Entrar',
                   ),

@@ -16,7 +16,7 @@ Tomei como base projetos que já criei, tais como: https://github.com/e-medeiros
 ### Funcionalidades</br>
 
 - [x] Login persistido </br>
-- [x] Criação de card com criação, persistência de dados e exclusão </br>
+- [x] Criação de card, persistência de dados e exclusão </br>
 - [x] Link para texto sobre políticas de privacidade </br>
 
 

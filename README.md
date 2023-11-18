@@ -10,7 +10,7 @@
 <h2> Sobre </h2></br>
 <p >
  Teste para Target Sistemas desenvolvido em 3 dias a partir da criação do projeto, utilizando o gerenciador de estado Mobx e os packages validatorless, url launcher, shared preferences e implementando conceitos de clean code para melhor leitura e manutenção do código. 
-Tomei como base projetos em que já fiz e/ou participei, tais como: https://github.com/e-medeiros1/todo_list_provider e https://github.com/e-medeiros1/chat_app/tree/master.
+Tomei como base projetos que já criei, tais como: https://github.com/e-medeiros1/todo_list_provider e https://github.com/e-medeiros1/chat_app/tree/master.
 </p></br>  
 
 ### Funcionalidades</br>

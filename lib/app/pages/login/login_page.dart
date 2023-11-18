@@ -47,8 +47,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       await _authStore.userLogin(_userController.text.trimRight());
 
-      Navigator.pushReplacementNamed(context, NamedRoutes.HOME_PAGE,
-          arguments: _userController.text);
+      Navigator.pushReplacementNamed(context, NamedRoutes.HOME_PAGE);
     }
   }
 
